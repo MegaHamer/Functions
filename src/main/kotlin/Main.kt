@@ -13,31 +13,40 @@ fun twoTask(){
     }
     text = text.uppercase()
     fun shifrowka (A:Char, B:Char, C:Char):Int{
-        var azb:MutableSet<Char> = (('А'..'И')+('К'..'Я')+' ').toMutableSet()
+        var azb:MutableSet<Char> = (('А'..'И')+('К'..'Я')).toMutableSet()
         var aInt:Int
         var bInt:Int
         if (A == 'Й'){
             aInt = azb.indexOf('И')
         }
-        else
+        else{
             if (A==' '){
                 aInt = azb.indexOf(C)
             }
-        else
-            aInt = azb.indexOf(A)
+            else{
+                aInt = azb.indexOf(A)
+            }
+        }
+
+
         if (B == 'Й'){
             bInt = azb.indexOf('И')
         }
-        else
+        else{
             if (B==' '){
-                aInt = azb.indexOf(C)
+                bInt = azb.indexOf(C)
             }
-        else
-            bInt = azb.indexOf(B)
-        return (aInt+1)*31+(aInt+1)
+            else {
+                bInt = azb.indexOf(B)
+            }
+        }
+
+
+        val res = (aInt * 31) + bInt + 1
+        return res
     }
     if (text.count()%2 == 1){
-        text+=" "
+        text+=' '
     }
     var shifr:String="";
     print("Ввести доп символ: ")
